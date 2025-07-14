@@ -10,6 +10,28 @@
       margin: 0;
     }
 
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .post-card, .feature-post, aside img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .post-card:hover, .feature-post:hover, aside img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
     .first {
       background-image: linear-gradient(to right, white 0%, white 60%, #62b0eb 60%, #62b0eb 100%);
       min-height: 825px;
@@ -58,7 +80,7 @@
     }
 
     .first-content p {
-      font-size: 20px;
+      font-size: 22px;
       color: #3f3d3d;
       text-align: justify;
     }
@@ -121,6 +143,49 @@
       text-align: justify;
     }
 
+    .feature-articles {
+      margin-top: 60px;
+    }
+
+    .feature-articles h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #3f3d3d;
+    }
+
+    .feature-post {
+      display: flex;
+      gap: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+
+    .feature-post img {
+      width: 300px;
+      object-fit: cover;
+    }
+
+    .feature-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .feature-content h3 {
+      margin-top: 0;
+      color: #3f3d3d;
+    }
+
+    .feature-content p {
+      font-size: 16px;
+      color: #555;
+      text-align: justify;
+    }
+
     footer {
       background-color: #62b0eb;
       color: white;
@@ -138,23 +203,32 @@
     footer a:hover {
       color: #e0e0e0;
     }
+
+    .fade-in-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in-scroll.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
 
-  <div class="first">
+  <div class="first fade-in">
     <header>
       <img src="https://i.ibb.co/hJkX7WtS/aniblog-logo.png" alt="Anime Blog Logo">
       <nav>
-        <a href="hobbyblog.html">Home</a>
-        <a href="hobbyblog.html">Anime</a>
-        <a href="hobbyblog.html">Manga</a>
-        <a href="hobbyblog.html">Releases</a>
-        <a href="hobbyblog.html">Games</a>
+        <a href="#home">Home</a>
+        <a href="#recent">Recent</a>
+        <a href="#featured">Featured</a>
       </nav>
     </header>
 
-    <main class="first-content">   
+    <main class="first-content" id="home">   
       <article>
         <p><strong>WELCOME</strong></p>
         <h1>This is AniBlog</h1>
@@ -173,102 +247,116 @@
     </main>
   </div>
 
-  <section class="blog-section">
+  <section class="blog-section" id="recent">
     <h2>Recent Anime Posts</h2>
     <div class="blog-posts">
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/zHNc8XPY/chainsaw-man.jpg" alt="Chainsaw Man">
         <div class="post-content">
           <h3>Chainsaw Man Review</h3>
           <article>An unfiltered ride of blood, chaos, and emotion. Discover why Denji's journey is unlike any other shonen protagonist’s.</article>
         </div>
       </div>
-
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/HL8k4DLm/jujutsu-kaisen.jpg" alt="Jujutsu Kaisen">
         <div class="post-content">
           <h3>Jujutsu Kaisen Breakdown</h3>
           <article>Delve deep into Gojo’s power, Sukuna’s mystery, and what makes this supernatural series so explosively good.</article>
         </div>
       </div>
-
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/fV26zz12/frieren.jpg" alt="Frieren">
         <div class="post-content">
           <h3>Why You Should Watch Frieren</h3>
           <article>A quiet, melancholic look at what happens after the story ends. Frieren is fantasy storytelling at its finest.</article>
         </div>
       </div>
-
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/qLg5mVRX/spy-x-family.jpg" alt="Spy x Family">
         <div class="post-content">
           <h3>Spy x Family Season 2</h3>
           <article>The Forger family returns in another heartwarming mix of comedy, action, and undercover missions.</article>
         </div>
       </div>
-
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/fdWgMS56/demon-slayer.jpg" alt="Demon Slayer">
         <div class="post-content">
           <h3>Demon Slayer: Swordsmith Arc</h3>
           <article>Stunning animation and new demons push Tanjiro and friends to their limits. Here’s what stood out this arc.</article>
         </div>
       </div>
-
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/rGpyZYYv/bleach.jpg" alt="Bleach TYBW">
         <div class="post-content">
           <h3>Bleach: Thousand-Year Blood War</h3>
           <article>Ichigo is back! Relive the excitement and epic battles as Bleach finally gets the adaptation fans waited years for.</article>
         </div>
       </div>
-
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/bgsyHmvg/attack-on-titan.jpg" alt="Attack on Titan">
         <div class="post-content">
           <h3>Final Thoughts on AoT</h3>
           <article>A legacy of betrayal, war, and freedom. Here's what the ending of Attack on Titan means to us.</article>
         </div>
       </div>
-
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/GfKpxmFR/tokyo-revengers.jpg" alt="Tokyo Revengers">
         <div class="post-content">
           <h3>Tokyo Revengers: Season Recap</h3>
           <article>Time travel, gangs, and heartbreak. Takemichi’s journey continues to twist fates in unexpected ways.</article>
         </div>
       </div>
-
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/KpyYcszN/mob-psycho.jpg" alt="Mob Psycho 100">
         <div class="post-content">
           <h3>Mob Psycho’s Emotional Finale</h3>
           <article>A tale of growth, self-worth, and friendship. Mob’s journey ends with a powerful message for everyone.</article>
         </div>
       </div>
-
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/mC0wP6ht/blue-lock.jpg" alt="Blue Lock">
         <div class="post-content">
           <h3>Blue Lock: Ego and Evolution</h3>
           <article>Sports anime reimagined. Blue Lock challenges what it means to play for glory — and yourself.</article>
         </div>
       </div>
-
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/hFGQfK9p/vinland-saga.webp" alt="Vinland Saga">
         <div class="post-content">
           <h3>Vinland Saga: Beyond Revenge</h3>
           <article>Thorfinn’s transformation from warrior to peace-seeker offers one of anime’s most profound arcs.</article>
         </div>
       </div>
-
-      <div class="post-card">
+      <div class="post-card fade-in-scroll">
         <img src="https://i.ibb.co/qYGK8RvL/solo-leveling.webp" alt="Solo Leveling">
         <div class="post-content">
           <h3>Solo Leveling First Impressions</h3>
           <article>From webtoon legend to anime debut — is Solo Leveling living up to the hype? Let’s break it down.</article>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-articles" id="featured">
+      <h2>Featured Articles</h2>
+      <div class="feature-post fade-in-scroll">
+        <img src="https://i.ibb.co/tM0Rh9Td/luffy-gear-5.webp" alt="One Piece Gear 5">
+        <div class="feature-content">
+          <h3>The Impact of Luffy’s Gear 5 Transformation</h3>
+          <p>One Piece hits a new peak with Luffy’s Gear 5 form. What does this mean for the future of the series and the anime industry as a whole?</p>
+        </div>
+      </div>
+      <div class="feature-post fade-in-scroll">
+        <img src="https://i.ibb.co/zhqLCm8Z/oshi-no-ko.jpg" alt="Oshi no Ko">
+        <div class="feature-content">
+          <h3>Oshi no Ko: A Dark Glimpse Behind the Idol Industry</h3>
+          <p>Oshi no Ko breaks expectations with a story that’s as thrilling as it is heartbreaking. We take a deep dive into the themes of fame and deception.</p>
+        </div>
+      </div>
+      <div class="feature-post fade-in-scroll">
+        <img src="https://i.ibb.co/7JPVmkVd/mahoraga.jpg" alt="Jujutsu Kaisen Mahoraga">
+        <div class="feature-content">
+          <h3>Explaining Mahoraga: Jujutsu Kaisen's Strongest Shikigami</h3>
+          <p>Mahoraga became a hot topic after recent episodes. Let’s break down its power, symbolism, and impact in the Jujutsu Kaisen universe.</p>
         </div>
       </div>
     </div>
@@ -281,6 +369,26 @@
       <a href="#">Contact</a>
     </p>
   </footer>
+
+  <script>
+    const fadeIns = document.querySelectorAll('.fade-in-scroll');
+
+    function checkFadeIn() {
+      const triggerBottom = window.innerHeight * 0.85;
+
+      fadeIns.forEach(el => {
+        const boxTop = el.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          el.classList.add('show');
+        } else {
+          el.classList.remove('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkFadeIn);
+    window.addEventListener('load', checkFadeIn);
+  </script>
 
 </body>
 </html>
